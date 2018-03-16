@@ -23,11 +23,7 @@ export class MyserviceService {
         data.name = 'prbhash';
         data.email = 'jsjsj@gmail.com';
         data.password = '11111111';
-        this.http.post(this.url + 'apiPost.php', data, {
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-            }
-        }).subscribe(val => {
+        this.http.post(this.url + 'apiPost.php', data).subscribe(val => {
             console.log(val);
         });
     }

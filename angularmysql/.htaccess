@@ -1,0 +1,42 @@
+# CORS Headers (add this)
+
+<ifModule mod_headers.c>
+    
+DirectoryIndex index.php
+
+#RewriteEngine On    # Turn on the rewriting engine
+	
+#RewriteRule    ^articles/?$    articles/index.php/a-ports-roundup-551    [NC,L]
+	
+	
+Header always set Access-Control-Allow-Origin: "*"
+    
+Header always set Access-Control-Allow-Methods "POST, GET, PUT, DELETE, OPTIONS"
+    
+Header always set Access-Control-Allow-Headers "X-Requested-With, content-type, X-Auth-Token, X-CallBack-Type, X-Project-Type, X-Secret-Key"
+	
+	
+
+RewriteEngine on
+
+# Fallback all unknown requests to index.php
+RewriteCond %{REQUEST_URI} !/app/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !^.*\.(jpg|css|js|gif|png)$ [NC]
+RewriteRule ^(.*)$ index.php?/$1 [L]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ifModule>
+
